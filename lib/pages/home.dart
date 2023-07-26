@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:portfolio/utils/constant.dart';
 
 import '../component/crousel.dart';
@@ -16,7 +15,7 @@ class Home extends StatelessWidget {
       endDrawer: Drawer(
         child: SafeArea(
           child: Padding(padding: 
-          EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
           child: ListView.separated(itemBuilder: 
           (BuildContext context , int index) {
             return headerItem[index].isButton ? MouseRegion(
@@ -29,7 +28,7 @@ class Home extends StatelessWidget {
                 child: TextButton(onPressed: headerItem[index].onTap,
                  child: Text(
                   headerItem[index].title!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 13.0,
                     fontWeight: FontWeight.bold,
@@ -40,7 +39,7 @@ class Home extends StatelessWidget {
               ): ListTile(
                 title: Text(
                   headerItem[index].title!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 13.0,
                     fontWeight: FontWeight.bold,
@@ -51,7 +50,7 @@ class Home extends StatelessWidget {
         ,
            separatorBuilder: 
            (BuildContext context,int index){
-            return SizedBox(
+            return const SizedBox(
               height: 10.0,
             );
            }
@@ -66,9 +65,9 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              child: Header() ,
+              child: const Header() ,
             ),
-            Crousel(),
+            const Crousel(),
           ],
         ),
        ),

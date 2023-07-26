@@ -65,9 +65,9 @@ class HeaderRow extends StatelessWidget {
               color: kPDangerColor,
               borderRadius: BorderRadius.circular(8.0)
             ),
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0) ,
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0) ,
             child: TextButton(onPressed: item.onTap
-            , child: Text(item.title! , style: TextStyle(
+            , child: Text(item.title! , style: const TextStyle(
               color: Colors.white,
               fontSize: 13.0,
               fontWeight: FontWeight.bold
@@ -80,10 +80,10 @@ class HeaderRow extends StatelessWidget {
           cursor: SystemMouseCursors.click,
           
           child: Container(
-            margin: EdgeInsets.only(right: 30.0),
+            margin: const EdgeInsets.only(right: 30.0),
             child: Text(
               item.title!, 
-              style: TextStyle(
+              style: const TextStyle(
               color: Colors.white,
               fontSize: 13.0,
               fontWeight: FontWeight.bold
@@ -98,12 +98,14 @@ class HeaderRow extends StatelessWidget {
 }
 
 class Header extends StatelessWidget {
+  const Header({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: ScreenHelper(
         desktop: Padding(
-          padding: EdgeInsets.symmetric(vertical: 8.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: buildHeader(context) ,
         ),
         // We will make this in a bit
@@ -114,16 +116,16 @@ class Header extends StatelessWidget {
   }
 
 Widget buildMobileHeader(){
-  return SafeArea(child: Padding(padding: EdgeInsets.symmetric(horizontal: 16.0),
+  return SafeArea(child: Padding(padding: const EdgeInsets.symmetric(horizontal: 16.0),
   child: Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      HeaderLogo(),
+      const HeaderLogo(),
       GestureDetector(
               onTap: () {
              Globals.scaffoldKey.currentState?.openEndDrawer();
               },
-              child: Icon(
+              child: const Icon(
                 Icons.menu_book_rounded,
                 color: Colors.white,
                 size: 28.0,
@@ -137,8 +139,8 @@ Widget buildMobileHeader(){
  
   Widget buildHeader(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
-      child: Row(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           HeaderLogo(),
