@@ -50,7 +50,7 @@ List<CrouselItemModel> crouselItems = List.generate(5, (index) => CrouselItemMod
         Container(
           child: Wrap(
             children: [
-              const Text("Need a full custom Mobile App?",
+               Text("Need a full custom Mobile App?",
               style: TextStyle(
                 color: kCaptionColor,
                 fontSize: 15.0,
@@ -60,7 +60,7 @@ List<CrouselItemModel> crouselItems = List.generate(5, (index) => CrouselItemMod
                 onTap:() {
                   
                 },
-                child: const MouseRegion(
+                child: MouseRegion(
                   cursor: SystemMouseCursors.click,
                 child: Text(
                   "Got a project? Let's talk.",
@@ -72,9 +72,10 @@ List<CrouselItemModel> crouselItems = List.generate(5, (index) => CrouselItemMod
                 ),
                 ),
               ),
-              const SizedBox(
-                height: 25.0,
+              SizedBox(
+                height: 40.0,
               ),
+               
               MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: Container(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/utils/constant.dart';
 
 import '../component/crousel.dart';
+import '../component/cv_section.dart';
 import '../component/header.dart';
 import '../utils/global.dart';
 
@@ -67,7 +68,8 @@ class Home extends StatelessWidget {
             Container(
               child: const Header() ,
             ),
-            const Crousel(),
+             Crousel(),
+             CVsection(),
           ],
         ),
        ),

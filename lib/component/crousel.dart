@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/component/crousel_item.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:portfolio/utils/screen_helper.dart';
-import 'package:rive/rive.dart';
 
 class Crousel extends StatefulWidget {
   const Crousel({super.key});
@@ -42,6 +41,7 @@ class _CrouselState extends State<Crousel> {
             }
             )).toList(),
              options: CarouselOptions(
+              //autoPlay: true,
               viewportFraction: 1,
               scrollPhysics: const NeverScrollableScrollPhysics(),
               height: crouselContainerHeight
@@ -127,18 +127,11 @@ Widget _buildTablet(BuildContext context, Widget text, Widget image){
 
 Widget _buildMobile(BuildContext context, Widget text, Widget image){
   double mobileWidth = MediaQuery.of(context).size.width * 0.8;
-  return Center(
-    child: ResponsiveScaledBox(width: mobileWidth, 
-    child: Row(
-      children: [
-        Expanded(
-          child: text,
-        ),
-        Expanded(
-          child: image,
-        )
-      ],
-    )
-  ),
+  return Container(
+    constraints: BoxConstraints(
+      maxWidth: mobileWidth,
+    ),
+    width: double.infinity,
+    child: text,
   );
 }
