@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/constant.dart';
@@ -6,11 +7,12 @@ import 'package:responsive_framework/responsive_framework.dart';
 import '../model/header_item.dart';
 import '../utils/global.dart';
 import '../utils/screen_helper.dart';
+import 'crousel.dart';
 
-List<HeaderItem> headerItem = [
-  HeaderItem(title: "HOME", onTap: (){}),
+  List<HeaderItem> headerItem = [
+  HeaderItem(title: "HOME", onTap: (){ }),
   HeaderItem(title:"ABOUT", onTap: () { }, ),
-  HeaderItem(title:"SERVICES", onTap: () { }, ),
+  HeaderItem(title:"SERVICES", onTap: () {  }, ),
   HeaderItem(title:"PROJECTS", onTap: () { }, ),
   HeaderItem(title:"CONTACT", onTap: () { }, ),
   HeaderItem(title:"RESUME", onTap: () { }, isButton: true),
@@ -48,12 +50,36 @@ class HeaderLogo extends StatelessWidget {
     ));
   }
 }
-
-class HeaderRow extends StatelessWidget {
+class HeaderRow extends StatefulWidget {
   const HeaderRow({super.key});
 
   @override
+  State<HeaderRow> createState() => _HeaderRowState();
+}
+class _HeaderRowState extends State<HeaderRow> {
+  //const HeaderRow({super.key});
+  @override
+  void initState() {
+    carouselController = CarouselController();
+    super.initState();
+  }
+  void changePage(int index){
+    setState(){
+      carouselController.jumpToPage(index);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+      List<HeaderItem> headerItem = [
+  HeaderItem(title: "HOME", onTap: (){ changePage(0); }),
+  HeaderItem(title:"ABOUT", onTap: () { changePage(1);}, ),
+  HeaderItem(title:"SERVICES", onTap: () {  changePage(2);}, ),
+  HeaderItem(title:"PROJECTS", onTap: () { changePage(3);}, ),
+  HeaderItem(title:"CONTACT", onTap: () { changePage(4);}, ),
+  HeaderItem(title:"RESUME", onTap: () { }, isButton: true),
+];
+
     return ResponsiveVisibility(
       visible: false,
       visibleConditions: [Condition.largerThan(name:MOBILE , value: true)],

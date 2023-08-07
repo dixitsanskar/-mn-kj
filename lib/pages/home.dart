@@ -69,7 +69,7 @@ class Home extends StatelessWidget {
               child: const Header() ,
             ),
              Crousel(),
-             CVsection(),
+             //CVsection(),
           ],
         ),
        ),

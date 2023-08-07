@@ -12,14 +12,18 @@ class Crousel extends StatefulWidget {
   State<Crousel> createState() => _CrouselState();
 }
 
+late CarouselController carouselController ;
 class _CrouselState extends State<Crousel> {
 
-
+  @override
+  void initState() {
+    carouselController = CarouselController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     
-    CarouselController carouselController = CarouselController();
     double crouselContainerHeight = MediaQuery.of(context).size.height * (ScreenHelper.isMobile(context)? 0.7 : 0.85);
     return SizedBox(
       height: crouselContainerHeight,
@@ -30,22 +34,21 @@ class _CrouselState extends State<Crousel> {
         children: [
           Container(
             alignment: Alignment.center,
-            child: CarouselSlider(items: List.generate(5, (index) => 
-            Builder(builder: (BuildContext context) {
-              return Container(
-                constraints: BoxConstraints(
-                  minHeight: crouselContainerHeight,
-                ),
-                child: ScreenHelper(mobile: _buildMobile(context, crouselItems[index].text, crouselItems[index].image), tablet: _buildTablet(context, crouselItems[index].text, crouselItems[index].image), desktop: _buildDesktop(context, crouselItems[index].text, crouselItems[index].image))
-              );
-            }
-            )).toList(),
+            child: CarouselSlider(items: [0,1].map((i) =>crouselItems[i] ).toList(),
              options: CarouselOptions(
               //autoPlay: true,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  carouselController.animateToPage(index);
+                });
+              },
+              initialPage: 0,
               viewportFraction: 1,
               scrollPhysics: const NeverScrollableScrollPhysics(),
               height: crouselContainerHeight
-             ))
+             ),
+             carouselController: carouselController,
+             )
           )
         ],
       ),
@@ -90,48 +93,3 @@ class _CrouselState extends State<Crousel> {
 //     );
 //   }
 // }
-
-Widget _buildDesktop(BuildContext context, Widget text, Widget image){
-  return Center(
-    child: ResponsiveScaledBox(width: 1000.0, 
-    child: Row(
-      children: [
-        Expanded(
-          child: text,
-        ),
-        Expanded(
-          child: image,
-        )
-      ],
-    )
-  ),
-  );
-}
-
-Widget _buildTablet(BuildContext context, Widget text, Widget image){
-  return Center(
-    child: ResponsiveScaledBox(width: 700.0, 
-    child: Row(
-      children: [
-        Expanded(
-          child: text,
-        ),
-        Expanded(
-          child: image,
-        )
-      ],
-    )
-  ),
-  );
-}
-
-Widget _buildMobile(BuildContext context, Widget text, Widget image){
-  double mobileWidth = MediaQuery.of(context).size.width * 0.8;
-  return Container(
-    constraints: BoxConstraints(
-      maxWidth: mobileWidth,
-    ),
-    width: double.infinity,
-    child: text,
-  );
-}
