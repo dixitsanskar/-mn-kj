@@ -1,16 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/constant.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../model/header_item.dart';
 import '../utils/global.dart';
+import '../utils/page_change.dart';
 import '../utils/screen_helper.dart';
 import 'crousel.dart';
 
   List<HeaderItem> headerItem = [
-  HeaderItem(title: "HOME", onTap: (){ }),
+  HeaderItem(title: "HOME", onTap: (){}),
   HeaderItem(title:"ABOUT", onTap: () { }, ),
   HeaderItem(title:"SERVICES", onTap: () {  }, ),
   HeaderItem(title:"PROJECTS", onTap: () { }, ),
@@ -51,32 +53,34 @@ class HeaderLogo extends StatelessWidget {
   }
 }
 class HeaderRow extends StatefulWidget {
-  const HeaderRow({super.key});
+  final CarouselController controller;
+   HeaderRow({required this.controller});
 
   @override
   State<HeaderRow> createState() => _HeaderRowState();
 }
 class _HeaderRowState extends State<HeaderRow> {
   //const HeaderRow({super.key});
-  @override
-  void initState() {
-    carouselController = CarouselController();
-    super.initState();
-  }
-  void changePage(int index){
-    setState(){
-      carouselController.jumpToPage(index);
-    }
-  }
+   
 
   @override
   Widget build(BuildContext context) {
-      List<HeaderItem> headerItem = [
-  HeaderItem(title: "HOME", onTap: (){ changePage(0); }),
-  HeaderItem(title:"ABOUT", onTap: () { changePage(1);}, ),
-  HeaderItem(title:"SERVICES", onTap: () {  changePage(2);}, ),
-  HeaderItem(title:"PROJECTS", onTap: () { changePage(3);}, ),
-  HeaderItem(title:"CONTACT", onTap: () { changePage(4);}, ),
+  final  List<HeaderItem> headItem = [
+  HeaderItem(title: "HOME", onTap: (){setState(() {
+    widget.controller.animateToPage(0);
+  });}),
+  HeaderItem(title:"ABOUT", onTap: () {setState(() {
+    widget.controller.animateToPage(1);
+  }); }, ),
+  HeaderItem(title:"SERVICES", onTap: () { setState(() {
+    widget.controller.jumpToPage(2);
+  }); }, ),
+  HeaderItem(title:"PROJECTS", onTap: () { setState(() {
+    widget.controller.jumpToPage(3);
+  });}, ),
+  HeaderItem(title:"CONTACT", onTap: () { setState(() {
+    widget.controller.jumpToPage(4);
+  });}, ),
   HeaderItem(title:"RESUME", onTap: () { }, isButton: true),
 ];
 
@@ -84,15 +88,17 @@ class _HeaderRowState extends State<HeaderRow> {
       visible: false,
       visibleConditions: [Condition.largerThan(name:MOBILE , value: true)],
       child: Row(
-        children: headerItem.map((item) => item.isButton ? MouseRegion(
+        children: headItem.map((item) => item.isButton ? GestureDetector(onTap: item.onTap,
+          child:MouseRegion(
           cursor: SystemMouseCursors.click,
+
           child: Container(
             decoration: BoxDecoration(
               color: kPDangerColor,
               borderRadius: BorderRadius.circular(8.0)
             ),
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0) ,
-            child: TextButton(onPressed: item.onTap
+            child: TextButton(onPressed:item.onTap 
             , child: Text(item.title! , style: const TextStyle(
               color: Colors.white,
               fontSize: 13.0,
@@ -101,8 +107,9 @@ class _HeaderRowState extends State<HeaderRow> {
             )
             ),
           ),
-        ) :
-         MouseRegion(
+        ) ):
+        GestureDetector(
+          onTap: item.onTap,          child: MouseRegion(
           cursor: SystemMouseCursors.click,
           
           child: Container(
@@ -116,7 +123,7 @@ class _HeaderRowState extends State<HeaderRow> {
             ), 
             ),
           ),
-        )
+        ))
         ).toList(),
        
       ));
@@ -124,7 +131,8 @@ class _HeaderRowState extends State<HeaderRow> {
 }
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  final CarouselController controller;
+  const Header({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -132,11 +140,11 @@ class Header extends StatelessWidget {
       child: ScreenHelper(
         desktop: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: buildHeader(context) ,
+          child: buildHeader(context, controller) ,
         ),
         // We will make this in a bit
         mobile: buildMobileHeader(),
-        tablet: buildHeader(context) ,
+        tablet: buildHeader(context, controller) ,
       ),
     );
   }
@@ -163,14 +171,14 @@ Widget buildMobileHeader(){
     );
 }
  
-  Widget buildHeader(BuildContext context) {
+  Widget buildHeader(BuildContext context,CarouselController controller) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: const Row(
+      child:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           HeaderLogo(),
-          HeaderRow()
+          HeaderRow(controller: controller,)
         ],
       ),
     );

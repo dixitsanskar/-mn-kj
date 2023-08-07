@@ -1,5 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils/constant.dart';
+import 'package:portfolio/utils/page_change.dart';
 
 import '../component/crousel.dart';
 import '../component/cv_section.dart';
@@ -7,7 +9,7 @@ import '../component/header.dart';
 import '../utils/global.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  final CarouselController controller = CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,9 +68,9 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              child: const Header() ,
+              child: Header(controller: controller,) ,
             ),
-             Crousel(),
+             Crousel(carouselController: controller,),
              //CVsection(),
           ],
         ),

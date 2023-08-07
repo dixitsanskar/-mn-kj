@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Dixit Sanskar',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
-      home: const Home() ,
+      home:  Home() ,
       theme: ThemeData.dark(
       ),
       builder: (context, Widget) => ResponsiveBreakpoints.builder(
