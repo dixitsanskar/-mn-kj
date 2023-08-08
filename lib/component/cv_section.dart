@@ -27,6 +27,7 @@ Widget _buildUi(BuildContext context,  double swidth) {
     children: [
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        
         children: [
          Expanded (child: Text("BETTER DESIGN,\nBETTER EXPERIENCE",
           style: GoogleFonts.robotoSlab(

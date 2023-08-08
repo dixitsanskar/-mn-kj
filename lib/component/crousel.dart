@@ -60,6 +60,7 @@ class _CrouselState extends State<Crousel> {
                   _currentPage = index;
                 });
               },
+              scrollDirection: Axis.vertical,
              enableInfiniteScroll: false,
               initialPage: 0,
               viewportFraction: 1,
