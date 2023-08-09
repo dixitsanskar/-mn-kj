@@ -7,7 +7,6 @@ import 'package:responsive_framework/responsive_scaled_box.dart';
 import '../model/crousel_item_mode.dart';
 import '../utils/constant.dart';
 import '../utils/screen_helper.dart';
-import 'crousel_item.dart';
 import 'rive_image.dart';
  CrouselItemModel mainItem = CrouselItemModel(
   text: Container(

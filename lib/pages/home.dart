@@ -1,10 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils/constant.dart';
-import 'package:portfolio/utils/page_change.dart';
-
 import '../component/crousel.dart';
-import '../component/cv_section.dart';
 import '../component/header.dart';
 import '../utils/global.dart';
 

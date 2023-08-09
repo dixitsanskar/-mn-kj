@@ -1,16 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/constant.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-
 import '../model/header_item.dart';
 import '../utils/global.dart';
-import '../utils/page_change.dart';
 import '../utils/screen_helper.dart';
-import 'crousel.dart';
-
   List<HeaderItem> headerItem = [
   HeaderItem(title: "HOME", onTap: (){}),
   HeaderItem(title:"ABOUT", onTap: () { }, ),
