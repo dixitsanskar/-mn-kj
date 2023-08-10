@@ -86,8 +86,6 @@ class CustomMouseScrollPhysics extends ScrollPhysics {
   Simulation? createBallisticSimulation(
       ScrollMetrics position, double velocity) {
     if (velocity.abs() > kMaxFlingVelocity) {
-      // If the fling velocity is greater than the maximum fling velocity,
-      // treat it as a touch scroll instead to avoid excessive scrolling speed.
       velocity = velocity.sign * kMaxFlingVelocity;
     }
     return super.createBallisticSimulation(position, velocity);
