@@ -24,7 +24,7 @@ class _CrouselState extends State<Crousel> {
     double crouselContainerHeight = MediaQuery.of(context).size.height * (ScreenHelper.isMobile(context)? 0.7 : 0.85);
     return SizedBox(
       height: crouselContainerHeight,
-     // color:Colors.yellow ,
+     
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
