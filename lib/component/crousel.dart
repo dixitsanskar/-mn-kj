@@ -52,7 +52,7 @@ class _CrouselState extends State<Crousel> {
                   widget.carouselController.animateToPage(index as int);
                 });
               },
-             //autoPlay: true,
+             
              onPageChanged: (index, reason) {
                 setState(() {
                   _currentPage = index;
