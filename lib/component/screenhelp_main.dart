@@ -15,27 +15,35 @@ import 'rive_image.dart';
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text("FLUTTER DEVELOPER",
-        style: GoogleFonts.robotoSlab(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w900 , 
-          color: kPrimaryColor,
-        )
-        ),
-        const SizedBox(
-          height: 18.0,
-        ),
-        Text("SANSKAR\nDIXIT",style: GoogleFonts.robotoSlab(
+        // Text("FLUTTER DEVELOPER",
+        // style: GoogleFonts.robotoSlab(
+        //   fontSize: 16.0,
+        //   fontWeight: FontWeight.w900 , 
+        //   color: kPrimaryColor,
+        // )
+        // ),
+        
+        Text("Need a",style: GoogleFonts.robotoSlab(
           fontSize: 40.0,
           fontWeight: FontWeight.w900,
           color: Colors.white,
           height: 1.3
         )
         ),
-        const SizedBox(
-          height: 10.0,
+        // const SizedBox(
+        //   height: 10.0,
+        // ),
+        Text("FLUTTER DEVELOPER ?",
+        style: GoogleFonts.robotoSlab(
+          fontSize: 25.0,
+          fontWeight: FontWeight.w900 , 
+          color: kPrimaryColor,
+        )
         ),
-        const Text("Flutter-Developer, based in India",
+        const SizedBox(
+          height: 10,
+        ),
+        const Text("A Flutter-Developer, based in India",
         style: TextStyle(
           color: kCaptionColor,
           fontSize: 15.0,
@@ -47,7 +55,8 @@ import 'rive_image.dart';
           height: 10.0,
         ),
         Container(
-          child: Wrap(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
                Text("Need a full custom Mobile App?",
               style: TextStyle(
@@ -55,24 +64,24 @@ import 'rive_image.dart';
                 fontSize: 15.0,
                 height: 1.5,
               ),),
-              GestureDetector(
-                onTap:() {
+              // GestureDetector(
+              //   onTap:() {
                   
-                },
-                child: MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                child: Text(
-                  "Got a project? Let's talk.",
-                  style: TextStyle(
-                    height: 1.5,
-                    color: Colors.white,
-                    fontSize: 15.0
-                  ),
-                ),
-                ),
-              ),
+              //   },
+              //   child: MouseRegion(
+              //     cursor: SystemMouseCursors.click,
+              //   child: Text(
+              //     ".",
+              //     style: TextStyle(
+              //       height: 1.5,
+              //       color: Colors.white,
+              //       fontSize: 15.0
+              //     ),
+              //   ),
+              //   ),
+              // ),
               SizedBox(
-                height: 40.0,
+                height: 20.0,
               ),
                
               MouseRegion(
@@ -85,12 +94,19 @@ import 'rive_image.dart';
                   height: 48.0,
                   padding: const EdgeInsets.symmetric(horizontal: 28.0),
                   child: TextButton(
-                    child: const Text("GET STARTED",  
+
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.phone_in_talk_outlined, color: Colors.white,),
+                        SizedBox(width: 10.0,),
+                        Text("LET'S TALK",  
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13.0,
                       fontWeight: FontWeight.bold,
                     )),
+                    ],),
                     onPressed: () {
                       
                     },

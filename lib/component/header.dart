@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/constant.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:rive/rive.dart';
 import '../model/header_item.dart';
 import '../utils/global.dart';
 import '../utils/screen_helper.dart';
   List<HeaderItem> headerItem = [
   HeaderItem(title: "HOME", onTap: (){}),
   HeaderItem(title:"ABOUT", onTap: () { }, ),
-  HeaderItem(title:"SERVICES", onTap: () {  }, ),
-  HeaderItem(title:"PROJECTS", onTap: () { }, ),
+  // HeaderItem(title:"SERVICES", onTap: () {  }, ),
+  // HeaderItem(title:"PROJECTS", onTap: () { }, ),
   HeaderItem(title:"CONTACT", onTap: () { }, ),
   HeaderItem(title:"RESUME", onTap: () { }, isButton: true),
 ];
@@ -27,8 +28,9 @@ class HeaderLogo extends StatelessWidget {
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
           onTap: (){},
-          child: RichText(text:TextSpan( children: [TextSpan(
-            text: "S", style: GoogleFonts.oswald(
+          child: 
+          RichText(text:TextSpan( children: [TextSpan(
+            text: "Sanskar", style: GoogleFonts.oswald(
               color: Colors.white,
               fontSize: 32.0,
               fontWeight:  FontWeight.bold
@@ -67,12 +69,12 @@ class _HeaderRowState extends State<HeaderRow> {
   HeaderItem(title:"ABOUT", onTap: () {setState(() {
     widget.controller.animateToPage(1);
   }); }, ),
-  HeaderItem(title:"SERVICES", onTap: () { setState(() {
-    widget.controller.jumpToPage(2);
-  }); }, ),
-  HeaderItem(title:"PROJECTS", onTap: () { setState(() {
-    widget.controller.jumpToPage(3);
-  });}, ),
+  // HeaderItem(title:"SERVICES", onTap: () { setState(() {
+  //   widget.controller.jumpToPage(2);
+  // }); }, ),
+  // HeaderItem(title:"PROJECTS", onTap: () { setState(() {
+  //   widget.controller.jumpToPage(3);
+  // });}, ),
   HeaderItem(title:"CONTACT", onTap: () { setState(() {
     widget.controller.jumpToPage(4);
   });}, ),
