@@ -41,3 +41,14 @@ late RiveAnimationController _imageController;
     ));
   }
 }
+
+
+class MyClip extends CustomClipper<Rect> {
+  Rect getClip(Size size) {
+    return Rect.fromLTWH(90, 0, 220, 220);
+  }
+ 
+  bool shouldReclip(oldClipper) {
+    return false;
+  }
+}

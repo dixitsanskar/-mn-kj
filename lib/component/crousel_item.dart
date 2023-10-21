@@ -9,7 +9,7 @@ import 'package:portfolio/component/screenhelp_main.dart';
 
 
 List<Widget> crouselItems = [ ScreenHelpMain(),
-AboutPage(),
+AboutMe(),
 
 
 ];

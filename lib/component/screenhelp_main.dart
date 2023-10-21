@@ -24,7 +24,7 @@ import 'rive_image.dart';
         // ),
         
         Text("Need a",style: GoogleFonts.robotoSlab(
-          fontSize: 40.0,
+          fontSize: 70.0,
           fontWeight: FontWeight.w900,
           color: Colors.white,
           height: 1.3
@@ -35,7 +35,7 @@ import 'rive_image.dart';
         // ),
         Text("FLUTTER DEVELOPER ?",
         style: GoogleFonts.robotoSlab(
-          fontSize: 25.0,
+          fontSize: 35.0,
           fontWeight: FontWeight.w900 , 
           color: kPrimaryColor,
         )
@@ -88,6 +88,7 @@ import 'rive_image.dart';
                 cursor: SystemMouseCursors.click,
                 child: Container(
                   decoration: BoxDecoration(
+                    boxShadow: [ BoxShadow(color: Colors.white.withOpacity(0.2), offset: Offset(0, 5), blurRadius: 5 ) ],
                     color: kPrimaryColor,
                     borderRadius: BorderRadius.circular(8.0),
                   ),
@@ -101,9 +102,9 @@ import 'rive_image.dart';
                         Icon(Icons.phone_in_talk_outlined, color: Colors.white,),
                         SizedBox(width: 10.0,),
                         Text("LET'S TALK",  
-                    style: TextStyle(
+                    style: GoogleFonts.roboto(
                       color: Colors.white,
-                      fontSize: 13.0,
+                      fontSize: 15.0,
                       fontWeight: FontWeight.bold,
                     )),
                     ],),
