@@ -33,11 +33,6 @@ class _AboutMeState extends State<AboutMe> {
     );
     
   }
-  void _clickState(){
-    setState(() {
-      _imageController = OneShotAnimation('hit', autoplay: false);
-    });
-  }
  
   @override
   Widget build(BuildContext context) {
@@ -111,8 +106,6 @@ class _AboutMeState extends State<AboutMe> {
                       
                       onPressed: (){
                 
-                        _clickState();
-
                       }, 
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
